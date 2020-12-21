@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .Error {
+            color: red;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 550px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script src='script.js'></script>
+    <div class="container">
+        <h1>Information Form</h1>
+        <form name="CustomerData">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="Name" class="form-control" placeholder="Name of Customer" size="35">
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" min="0" name="Age" class="form-control" size="2" placeholder="Age">
+            </div>
+            <div class="form-group">
+                <label>Sex</label>
+                <select class="form-control" id="sex">
+                    <option><b>Male</b></option>
+                    <option><b>Female</b></option>
+                    <option><b>Others</b></option>
+                </select>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="email" id="email" onclick='Demo()'>Email</label> &nbsp;&nbsp;
+                <label><input type="checkbox" name="phone" id="phone" onclick='Demo()'>Phone</label>
+            </div>
+            <div class="form-group" id="emailDiv" style="display: none;">
+                <label>Email</label>
+                <input type="email" name="emailField" id="emailField" class="form-control" placeholder="Email "
+                    onchange="emailValidator()">
+                <p class="Error">
+                    <span class="error" id="emailError"></span>
+                </p>
+
+            </div>
+            <div class="form-group" id="phoneDiv" style="display: none;">
+                <label>Phone</label>
+                <input type="number" name="phoneField" id="phoneField" pattern="^\d{3}-\d{3}-\d{4}$"
+                    class="form-control" placeholder="Phone number" onchange="phoneValidator()">
+
+                <p class="Error">
+                    <span class="error" id="phoneError"></span>
+                </p>
+            </div>
+            <div class="form-group">
+                <label>Occupation</label>
+                <input type="text" name="occupation" id="occupation" class="form-control" placeholder="Occupation"
+                    size="25">
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" id="address" name="Address" rows="3" maxlength="255"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button><br />
+        </form>
+    </div>
+</body>
+
+</html>
