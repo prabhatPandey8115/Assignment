@@ -11,6 +11,7 @@
 
         @media (min-width: 768px) {
             .container {
+                background-color: aliceblue;
                 width: 550px;
             }
         }
@@ -24,12 +25,19 @@
         <form name="CustomerData">
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" name="Name" class="form-control" placeholder="Name of Customer" size="35">
+                <input type="text" name="name" id="name" class="form-control" placeholder="Name of Customer" size="35"
+                    oninput='nameLength()'>
+                <p class="Error">
+                    <span class="error" id="nameError" style="display: none;"></span>
+                </p>
             </div>
-
             <div class="form-group">
                 <label>Age</label>
-                <input type="number" min="0" name="Age" class="form-control" size="2" placeholder="Age">
+                <input type="number" min="0" max="99" name="age" id="age" class="form-control" size="2"
+                    placeholder="Age" oninput="ageValidator(document.CustomerData.age.value)">
+                <p class="Error">
+                    <span class="error" id="ageError" style="display: none;"></span>
+                </p>
             </div>
             <div class="form-group">
                 <label>Sex</label>
@@ -46,31 +54,34 @@
             <div class="form-group" id="emailDiv" style="display: none;">
                 <label>Email</label>
                 <input type="email" name="emailField" id="emailField" class="form-control" placeholder="Email "
-                    onchange="emailValidator()">
+                    oninput="emailValidator()">
                 <p class="Error">
-                    <span class="error" id="emailError"></span>
+                    <span class="error" id="emailError" style="display: none;"></span>
                 </p>
-
             </div>
             <div class="form-group" id="phoneDiv" style="display: none;">
                 <label>Phone</label>
-                <input type="number" name="phoneField" id="phoneField" pattern="^\d{3}-\d{3}-\d{4}$"
-                    class="form-control" placeholder="Phone number" onchange="phoneValidator()">
-
+                <input type="number" name="phoneField" id="phoneField" class="form-control" placeholder="Phone number"
+                    oninput="phoneValidator()">
                 <p class="Error">
-                    <span class="error" id="phoneError"></span>
+                    <span class="error" id="phoneError" style="display: none;"></span>
                 </p>
             </div>
             <div class="form-group">
                 <label>Occupation</label>
                 <input type="text" name="occupation" id="occupation" class="form-control" placeholder="Occupation"
-                    size="25">
-                <br />
+                    size="25" oninput="occupationLength()">
+                <p class="Error">
+                    <span class="error" id="occError" style="display: none;"></span>
+                </p>
             </div>
-
             <div class="form-group">
                 <label>Address</label>
-                <textarea class="form-control" id="address" name="Address" rows="3" maxlength="255"></textarea>
+                <textarea class="form-control" id="address" name="Address" rows="3" placeholder="Address"
+                     oninput="addressLength()"></textarea>
+                    <p class="Error">
+                        <span class="error" id="addError" style="display: none;"></span>
+                    </p>
             </div>
             <button type="submit" class="btn btn-success">Submit</button><br />
         </form>
